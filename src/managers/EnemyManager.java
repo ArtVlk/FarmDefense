@@ -6,11 +6,11 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-import enemies.Bat;
+import enemies.Rabbit;
 import enemies.Enemy;
-import enemies.Knight;
-import enemies.Orc;
-import enemies.Wolf;
+import enemies.Napoleon;
+import enemies.Taras;
+import enemies.Cat;
 import helpz.LoadSave;
 import helpz.Utilz;
 import objects.PathPoint;
@@ -225,17 +225,17 @@ public class EnemyManager {
 		int y = start.getyCord() * 32;
 
 		switch (enemyType) {
-		case ORC:
-			enemies.add(new Orc(x, y, 0, this));
+		case TARAS:
+			enemies.add(new Taras(x, y, 0, this));
 			break;
-		case BAT:
-			enemies.add(new Bat(x, y, 0, this));
+		case RABBIT:
+			enemies.add(new Rabbit(x, y, 0, this));
 			break;
-		case KNIGHT:
-			enemies.add(new Knight(x, y, 0, this));
+		case NAPOLEON:
+			enemies.add(new Napoleon(x, y, 0, this));
 			break;
-		case WOLF:
-			enemies.add(new Wolf(x, y, 0, this));
+		case CAT:
+			enemies.add(new Cat(x, y, 0, this));
 			break;
 		}
 

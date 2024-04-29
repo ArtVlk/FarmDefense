@@ -4,11 +4,7 @@ import javax.swing.JFrame;
 
 import helpz.LoadSave;
 import managers.TileManager;
-import scenes.Editing;
-import scenes.GameOver;
-import scenes.Menu;
-import scenes.Playing;
-import scenes.Settings;
+import scenes.*;
 
 public class Game extends JFrame implements Runnable {
 
@@ -25,6 +21,7 @@ public class Game extends JFrame implements Runnable {
 	private Settings settings;
 	private Editing editing;
 	private GameOver gameOver;
+	private GameWin gameWin;
 
 	private TileManager tileManager;
 
@@ -38,7 +35,7 @@ public class Game extends JFrame implements Runnable {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setTitle("Your Game");
+		setTitle("Farm Defense");
 		add(gameScreen);
 		pack();
 		setVisible(true);
@@ -63,6 +60,7 @@ public class Game extends JFrame implements Runnable {
 		settings = new Settings(this);
 		editing = new Editing(this);
 		gameOver = new GameOver(this);
+		gameWin = new GameWin(this);
 
 	}
 
@@ -165,6 +163,8 @@ public class Game extends JFrame implements Runnable {
 	public GameOver getGameOver() {
 		return gameOver;
 	}
+
+	public GameWin getGameWin() {return gameWin;}
 
 	public TileManager getTileManager() {
 		return tileManager;

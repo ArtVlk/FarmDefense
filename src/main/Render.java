@@ -27,6 +27,9 @@ public class Render {
 		case GAME_OVER:
 			game.getGameOver().render(g);
 			break;
+		case GAME_WIN:
+			game.getGameWin().render(g);
+			break;
 		default:
 			break;
 

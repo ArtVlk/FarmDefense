@@ -34,6 +34,7 @@ public class GameOver extends GameScene implements SceneMethods {
 	public void render(Graphics g) {
 		// game over text
 		g.setFont(new Font("LucidaSans", Font.BOLD, 50));
+
 		g.setColor(Color.red);
 		g.drawString("Game Over!", 160, 80);
 

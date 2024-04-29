@@ -27,17 +27,17 @@ public class Tower {
 		this.tier++;
 
 		switch (towerType) {
-		case ARCHER:
+		case DOG:
 			dmg += 2;
 			range += 20;
 			cooldown -= 5;
 			break;
-		case CANNON:
+		case LAMA:
 			dmg += 5;
 			range += 20;
 			cooldown -= 15;
 			break;
-		case WIZARD:
+		case COW:
 			range += 20;
 			cooldown -= 10;
 			break;

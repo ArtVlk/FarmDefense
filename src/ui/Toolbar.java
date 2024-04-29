@@ -13,10 +13,11 @@ import java.util.Map;
 import helpz.LoadSave;
 import objects.Tile;
 import scenes.Editing;
+import helpz.LoadSave.*;
 
 public class Toolbar extends Bar {
 	private Editing editing;
-	private MyButton bMenu, bSave;
+	private MyButton bMenu, bSave, bClear;
 	private MyButton bPathStart, bPathEnd;
 	private BufferedImage pathStart, pathEnd;
 	private Tile selectedTile;
@@ -43,6 +44,7 @@ public class Toolbar extends Bar {
 
 		bMenu = new MyButton("Menu", 2, 642, 100, 30);
 		bSave = new MyButton("Save", 2, 674, 100, 30);
+		bClear = new MyButton("Clear all", 2, 706, 100, 30);
 
 		int w = 50;
 		int h = 50;
@@ -74,6 +76,10 @@ public class Toolbar extends Bar {
 		editing.saveLevel();
 	}
 
+	public void clearLevel(){
+		editing.changeLevelToSingleTexture(0); // Change the level to single texture with id=1
+	}
+
 	public void rotateSprite() {
 
 		currentIndex++;
@@ -97,6 +103,7 @@ public class Toolbar extends Bar {
 	private void drawButtons(Graphics g) {
 		bMenu.draw(g);
 		bSave.draw(g);
+		bClear.draw(g);
 
 		drawPathButton(g, bPathStart, pathStart);
 		drawPathButton(g, bPathEnd, pathEnd);
@@ -156,6 +163,8 @@ public class Toolbar extends Bar {
 			SetGameState(MENU);
 		else if (bSave.getBounds().contains(x, y))
 			saveLevel();
+		else if (bClear.getBounds().contains(x, y))
+			clearLevel();
 		else if (bWater.getBounds().contains(x, y)) {
 			selectedTile = editing.getGame().getTileManager().getTile(bWater.getId());
 			editing.setSelectedTile(selectedTile);
@@ -188,6 +197,7 @@ public class Toolbar extends Bar {
 	public void mouseMoved(int x, int y) {
 		bMenu.setMouseOver(false);
 		bSave.setMouseOver(false);
+		bClear.setMouseOver(false);
 		bWater.setMouseOver(false);
 		bGrass.setMouseOver(false);
 		bPathStart.setMouseOver(false);
@@ -200,6 +210,8 @@ public class Toolbar extends Bar {
 			bMenu.setMouseOver(true);
 		else if (bSave.getBounds().contains(x, y))
 			bSave.setMouseOver(true);
+		else if (bClear.getBounds().contains(x, y))
+			bClear.setMouseOver(true);
 		else if (bWater.getBounds().contains(x, y))
 			bWater.setMouseOver(true);
 		else if (bGrass.getBounds().contains(x, y))
@@ -223,6 +235,8 @@ public class Toolbar extends Bar {
 			bMenu.setMousePressed(true);
 		else if (bSave.getBounds().contains(x, y))
 			bSave.setMousePressed(true);
+		else if (bClear.getBounds().contains(x, y))
+			bClear.setMousePressed(true);
 		else if (bWater.getBounds().contains(x, y))
 			bWater.setMousePressed(true);
 		else if (bGrass.getBounds().contains(x, y))
@@ -243,6 +257,7 @@ public class Toolbar extends Bar {
 	public void mouseReleased(int x, int y) {
 		bMenu.resetBooleans();
 		bSave.resetBooleans();
+		bClear.resetBooleans();
 		bGrass.resetBooleans();
 		bWater.resetBooleans();
 		bPathStart.resetBooleans();

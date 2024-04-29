@@ -16,6 +16,9 @@ import objects.PathPoint;
 import objects.Tower;
 import ui.ActionBar;
 import static helpz.Constants.Tiles.GRASS_TILE;
+import static main.GameStates.*;
+
+import main.GameStates.*;
 
 public class Playing extends GameScene implements SceneMethods {
 
@@ -71,9 +74,12 @@ public class Playing extends GameScene implements SceneMethods {
 						waveManager.increaseWaveIndex();
 						enemyManager.getEnemies().clear();
 						waveManager.resetEnemyIndex();
-
 					}
 				}
+			}
+
+			if (isLastWave() && isAllEnemiesDead()) {
+				SetGameState(GAME_WIN);
 			}
 
 			if (isTimeForNewEnemy()) {
@@ -86,6 +92,10 @@ public class Playing extends GameScene implements SceneMethods {
 			projManager.update();
 		}
 
+	}
+
+	private boolean isLastWave() {
+		return waveManager.getWaveIndex() == waveManager.getWaves().size() - 1;
 	}
 
 	private boolean isWaveTimerOver() {

@@ -2,7 +2,6 @@ package managers;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Point;
 import java.awt.geom.Point2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
@@ -178,11 +177,11 @@ public class ProjectileManager {
 
 	private int getProjType(Tower t) {
 		switch (t.getTowerType()) {
-		case ARCHER:
+		case DOG:
 			return ARROW;
-		case CANNON:
+		case LAMA:
 			return BOMB;
-		case WIZARD:
+		case COW:
 			return CHAINS;
 		}
 		return 0;

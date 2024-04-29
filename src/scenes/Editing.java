@@ -14,7 +14,7 @@ import static helpz.Constants.Tiles.ROAD_TILE;
 
 public class Editing extends GameScene implements SceneMethods {
 
-	private int[][] lvl;
+	public int[][] lvl;
 	private Tile selectedTile;
 	private int mouseX, mouseY;
 	private int lastTileX, lastTileY, lastTileId;
@@ -28,7 +28,7 @@ public class Editing extends GameScene implements SceneMethods {
 		toolbar = new Toolbar(0, 640, 640, 160, this);
 	}
 
-	private void loadDefaultLevel() {
+	public void loadDefaultLevel() {
 		lvl = LoadSave.GetLevelData();
 		ArrayList<PathPoint> points = LoadSave.GetLevelPathPoints();
 		start = points.get(0);
@@ -56,6 +56,14 @@ public class Editing extends GameScene implements SceneMethods {
 		if (end != null)
 			g.drawImage(toolbar.getEndPathImg(), end.getxCord() * 32, end.getyCord() * 32, 32, 32, null);
 
+	}
+
+	public void changeLevelToSingleTexture(int textureId) {
+		for (int y = 0; y < lvl.length; y++) {
+			for (int x = 0; x < lvl[y].length; x++) {
+				lvl[y][x] = textureId;
+			}
+		}
 	}
 
 	private void drawLevel(Graphics g) {

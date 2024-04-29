@@ -21,17 +21,17 @@ public class Constants {
 	}
 
 	public static class Towers {
-		public static final int CANNON = 0;
-		public static final int ARCHER = 1;
-		public static final int WIZARD = 2;
+		public static final int LAMA = 0;
+		public static final int DOG = 1;
+		public static final int COW = 2;
 
 		public static int GetTowerCost(int towerType) {
 			switch (towerType) {
-			case CANNON:
+			case LAMA:
 				return 65;
-			case ARCHER:
+			case DOG:
 				return 35;
-			case WIZARD:
+			case COW:
 				return 50;
 			}
 			return 0;
@@ -39,23 +39,23 @@ public class Constants {
 
 		public static String GetName(int towerType) {
 			switch (towerType) {
-			case CANNON:
-				return "Cannon";
-			case ARCHER:
-				return "Archer";
-			case WIZARD:
-				return "Wizard";
+			case LAMA:
+				return "LAMA";
+			case DOG:
+				return "DOG";
+			case COW:
+				return "COW";
 			}
 			return "";
 		}
 
 		public static int GetStartDmg(int towerType) {
 			switch (towerType) {
-			case CANNON:
+			case LAMA:
 				return 15;
-			case ARCHER:
-				return 5;
-			case WIZARD:
+			case DOG:
+				return 500;
+			case COW:
 				return 0;
 			}
 
@@ -64,11 +64,11 @@ public class Constants {
 
 		public static float GetDefaultRange(int towerType) {
 			switch (towerType) {
-			case CANNON:
+			case LAMA:
 				return 75;
-			case ARCHER:
+			case DOG:
 				return 120;
-			case WIZARD:
+			case COW:
 				return 100;
 			}
 
@@ -77,11 +77,11 @@ public class Constants {
 
 		public static float GetDefaultCooldown(int towerType) {
 			switch (towerType) {
-			case CANNON:
+			case LAMA:
 				return 120;
-			case ARCHER:
+			case DOG:
 				return 35;
-			case WIZARD:
+			case COW:
 				return 50;
 			}
 
@@ -98,20 +98,20 @@ public class Constants {
 
 	public static class Enemies {
 
-		public static final int ORC = 0;
-		public static final int BAT = 1;
-		public static final int KNIGHT = 2;
-		public static final int WOLF = 3;
+		public static final int TARAS = 0;
+		public static final int RABBIT = 1;
+		public static final int NAPOLEON = 2;
+		public static final int CAT = 3;
 
 		public static int GetReward(int enemyType) {
 			switch (enemyType) {
-			case ORC:
+			case TARAS:
 				return 5;
-			case BAT:
+			case RABBIT:
 				return 5;
-			case KNIGHT:
+			case NAPOLEON:
 				return 25;
-			case WOLF:
+			case CAT:
 				return 10;
 			}
 			return 0;
@@ -119,13 +119,13 @@ public class Constants {
 
 		public static float GetSpeed(int enemyType) {
 			switch (enemyType) {
-			case ORC:
+			case TARAS:
 				return 0.5f;
-			case BAT:
+			case RABBIT:
 				return 0.7f;
-			case KNIGHT:
+			case NAPOLEON:
 				return 0.45f;
-			case WOLF:
+			case CAT:
 				return 0.85f;
 			}
 			return 0;
@@ -133,13 +133,13 @@ public class Constants {
 
 		public static int GetStartHealth(int enemyType) {
 			switch (enemyType) {
-			case ORC:
+			case TARAS:
 				return 85;
-			case BAT:
+			case RABBIT:
 				return 100;
-			case KNIGHT:
+			case NAPOLEON:
 				return 400;
-			case WOLF:
+			case CAT:
 				return 125;
 			}
 			return 0;

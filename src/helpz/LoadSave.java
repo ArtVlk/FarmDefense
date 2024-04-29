@@ -25,6 +25,7 @@ public class LoadSave {
 		File folder = new File(homePath + File.separator + saveFolder);
 		if (!folder.exists())
 			folder.mkdir();
+		System.out.println(filePath);
 	}
 
 	public static BufferedImage getSpriteAtlas() {
