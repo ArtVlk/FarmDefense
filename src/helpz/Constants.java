@@ -1,6 +1,8 @@
 package helpz;
 
+import language.Translator;
 public class Constants {
+	public static Translator lanButton = new Translator();
 
 	public static class Projectiles {
 		public static final int ARROW = 0;
@@ -40,11 +42,11 @@ public class Constants {
 		public static String GetName(int towerType) {
 			switch (towerType) {
 			case LAMA:
-				return "LAMA";
+				return lanButton.getLama();
 			case DOG:
-				return "DOG";
+				return lanButton.getDog();
 			case COW:
-				return "COW";
+				return lanButton.getCow();
 			}
 			return "";
 		}

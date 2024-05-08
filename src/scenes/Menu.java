@@ -2,13 +2,18 @@ package scenes;
 
 import java.awt.Graphics;
 
+import language.Translator;
 import main.Game;
 import ui.MyButton;
+
 import static main.GameStates.*;
+
+
 
 public class Menu extends GameScene implements SceneMethods {
 
 	private MyButton bPlaying, bEdit, bSettings, bQuit;
+	public Translator lanButton = new Translator();
 
 	public Menu(Game game) {
 		super(game);
@@ -23,10 +28,10 @@ public class Menu extends GameScene implements SceneMethods {
 		int y = 150;
 		int yOffset = 100;
 
-		bPlaying = new MyButton("Play", x, y, w, h);
-		bEdit = new MyButton("Edit", x, y + yOffset, w, h);
-		bSettings = new MyButton("Settings", x, y + yOffset * 2, w, h);
-		bQuit = new MyButton("Quit", x, y + yOffset * 3, w, h);
+		bPlaying = new MyButton(lanButton.getPlay(), x, y, w, h);
+		bEdit = new MyButton(lanButton.getEdit(), x, y + yOffset, w, h);
+		bSettings = new MyButton(lanButton.getSettings(), x, y + yOffset * 2, w, h);
+		bQuit = new MyButton(lanButton.getQuit(), x, y + yOffset * 3, w, h);
 
 	}
 

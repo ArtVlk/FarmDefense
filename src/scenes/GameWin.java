@@ -6,11 +6,13 @@ import java.awt.Graphics;
 
 import main.Game;
 import ui.MyButton;
+import language.Translator;
 import static main.GameStates.*;
 
 public class GameWin extends GameScene implements SceneMethods {
 
     private MyButton bReplay, bMenu;
+    public Translator lanButton = new Translator();
 
     public GameWin(Game game) {
         super(game);
@@ -25,8 +27,8 @@ public class GameWin extends GameScene implements SceneMethods {
         int y = 300;
         int yOffset = 100;
 
-        bMenu = new MyButton("Menu", x, y, w, h);
-        bReplay = new MyButton("Replay", x, y + yOffset, w, h);
+        bMenu = new MyButton(lanButton.getMenu(), x, y, w, h);
+        bReplay = new MyButton(lanButton.getReplay(), x, y + yOffset, w, h);
 
     }
 
@@ -35,7 +37,7 @@ public class GameWin extends GameScene implements SceneMethods {
         // game over text
         g.setFont(new Font("LucidaSans", Font.BOLD, 50));
         g.setColor(Color.green);
-        g.drawString("You Win!", 160, 80);
+        g.drawString(lanButton.getYouWin(), 160, 80);
 
         // buttons
         g.setFont(new Font("LucidaSans", Font.BOLD, 20));

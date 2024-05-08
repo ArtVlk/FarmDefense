@@ -11,11 +11,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import helpz.LoadSave;
+import language.Translator;
 import objects.Tile;
 import scenes.Editing;
 import helpz.LoadSave.*;
 
 public class Toolbar extends Bar {
+	public Translator lanButton = new Translator();
 	private Editing editing;
 	private MyButton bMenu, bSave, bClear;
 	private MyButton bPathStart, bPathEnd;
@@ -42,9 +44,9 @@ public class Toolbar extends Bar {
 
 	private void initButtons() {
 
-		bMenu = new MyButton("Menu", 2, 642, 100, 30);
-		bSave = new MyButton("Save", 2, 674, 100, 30);
-		bClear = new MyButton("Clear all", 2, 706, 100, 30);
+		bMenu = new MyButton(lanButton.getMenu(), 2, 642, 100, 30);
+		bSave = new MyButton(lanButton.getSave(), 2, 674, 100, 30);
+		bClear = new MyButton(lanButton.getClear(), 2, 706, 100, 30);
 
 		int w = 50;
 		int h = 50;

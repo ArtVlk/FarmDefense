@@ -11,6 +11,7 @@ public class Game extends JFrame implements Runnable {
 	private GameScreen gameScreen;
 	private Thread gameThread;
 
+
 	private final double FPS_SET = 120.0;
 	private final double UPS_SET = 60.0;
 
@@ -22,7 +23,7 @@ public class Game extends JFrame implements Runnable {
 	private Editing editing;
 	private GameOver gameOver;
 	private GameWin gameWin;
-
+	private Language language;
 	private TileManager tileManager;
 
 	public Game() {
@@ -61,8 +62,11 @@ public class Game extends JFrame implements Runnable {
 		editing = new Editing(this);
 		gameOver = new GameOver(this);
 		gameWin = new GameWin(this);
+		language = new Language(this);
 
 	}
+
+	public void getInitClasses() {initClasses();}
 
 	private void start() {
 		gameThread = new Thread(this) {
@@ -82,6 +86,8 @@ public class Game extends JFrame implements Runnable {
 			playing.update();
 			break;
 		case SETTINGS:
+			break;
+		case LANGUAGE:
 			break;
 		default:
 			break;
@@ -155,6 +161,8 @@ public class Game extends JFrame implements Runnable {
 	public Settings getSettings() {
 		return settings;
 	}
+
+	public Language getLanguage() {return language;}
 
 	public Editing getEditor() {
 		return editing;

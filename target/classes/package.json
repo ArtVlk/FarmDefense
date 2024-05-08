@@ -1,0 +1,42 @@
+{
+  "name": "resources",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "language": {
+    "MenuPlay": { "ru": "Меню", "en": "Menu"},
+    "ReplayPlay": { "ru": "Заново", "en": "Replay"},
+    "GameOverPlay": { "ru": "Игра закончена", "en": "Game over"},
+    "PlayPlay": {"ru": "Играть", "en": "Play"},
+    "EditPlay": {"ru": "Изменить карту", "en": "Edit"},
+    "SettingsPlay": {"ru": "Настройки", "en": "Settings"},
+    "QuitPlay": { "ru": "Выход", "en": "Quit"},
+    "YouWinPlay": {"ru": "Вы выиграли!", "en": "You win!"},
+    "LamaPlay": {"ru": "Лама", "en":  "Lama"},
+    "DogPlay": {"ru": "Собака", "en":  "Dog"},
+    "CowPlay": {"ru":  "Корова", "en": "Cow"},
+    "LanguagePlay": {"ru": "Выбор языка", "en": "Language"},
+    "RuPlay": {"ru":  "Русский язык", "en": "Russian"},
+    "EnPlay": {"ru":  "Англиский язык", "en":  "English"},
+    "SavePlay": {"ru":  "Сохранить", "en": "Save"},
+    "ClearAllPlay": {"ru":  "Очистить всё", "en": "Clear all"},
+    "PausePlay": {"ru": "Пауза", "en":  "Pause"},
+    "UnpausePlay": {"ru": "Снять с паузы", "en":  "Unpause"},
+    "SellPlay": {"ru":  "Продать", "en":  "Sell"},
+    "SellForPlay": {"ru":  "Продаётся за: ", "en":  "Sell for: "},
+    "UpgradePlay": {"ru":  "Улучшить", "en":  "Upgrade"},
+    "UpgradeForPlay": {"ru":  "Улучшить за: ", "en":  "Upgrade for: "},
+    "GamePausePlay": {"ru":  "Игра на паузе!", "en":  "Game is Paused!"},
+    "CostPlay": {"ru":  "Цена: ", "en":  "Cost: "},
+    "LivesPlay": {"ru":  "Жизни: ", "en":  "Lives: "},
+    "TooExpensivePlay": {"ru":  "Не хватает денег", "en":  "Can't Afford"},
+    "GoldPlay": {"ru": "Золото: ", "en": "Gold: "},
+    "WavePlay": {"ru":  "Волна: ", "en": "Wave: "},
+    "EnemiesLeftPlay": {"ru": "Врагов ушло: ", "en":  "Enemies Left: "},
+    "TimePlay": {"ru": "Осталось времени: ", "en":  "Time Left: "},
+    "TierPlay": {"ru":  "Уровень: ", "en":  "Tier"}
+
+
+
+  }
+}

@@ -8,11 +8,13 @@ import java.awt.Graphics;
 import java.text.DecimalFormat;
 
 import helpz.Constants.Towers;
+import language.Translator;
 import objects.Tower;
 import scenes.Playing;
 
 public class ActionBar extends Bar {
 
+	public Translator lanButton = new Translator();
 	private Playing playing;
 	private MyButton bMenu, bPause;
 
@@ -48,8 +50,8 @@ public class ActionBar extends Bar {
 
 	private void initButtons() {
 
-		bMenu = new MyButton("Menu", 2, 642, 100, 30);
-		bPause = new MyButton("Pause", 2, 682, 100, 30);
+		bMenu = new MyButton(lanButton.getMenu(), 2, 642, 100, 30);
+		bPause = new MyButton(lanButton.getPause(), 2, 682, 100, 30);
 
 		towerButtons = new MyButton[3];
 
@@ -63,8 +65,8 @@ public class ActionBar extends Bar {
 			towerButtons[i] = new MyButton("", xStart + xOffset * i, yStart, w, h, i);
 
 //		sellTower, upgradeTower; 
-		sellTower = new MyButton("Sell", 420, 702, 80, 25);
-		upgradeTower = new MyButton("Upgrade", 545, 702, 80, 25);
+		sellTower = new MyButton(lanButton.getSell(), 420, 702, 80, 25);
+		upgradeTower = new MyButton(lanButton.getUpgrade(), 545, 702, 80, 25);
 
 	}
 
@@ -111,12 +113,12 @@ public class ActionBar extends Bar {
 		// Game paused text
 		if (playing.isGamePaused()) {
 			g.setColor(Color.black);
-			g.drawString("Game is Paused!", 110, 790);
+			g.drawString(lanButton.getPause(), 110, 790);
 		}
 
 		// Lives
 		g.setColor(Color.black);
-		g.drawString("Lives: " + lives, 110, 750);
+		g.drawString(lanButton.getLives() + lives, 110, 750);
 
 	}
 
@@ -127,12 +129,12 @@ public class ActionBar extends Bar {
 		g.drawRect(280, 650, 120, 50);
 
 		g.drawString("" + getTowerCostName(), 285, 670);
-		g.drawString("Cost: " + getTowerCostCost() + "g", 285, 695);
+		g.drawString(lanButton.getCost() + getTowerCostCost() + "g", 285, 695);
 
 		// Show this if player lacks gold for the selected tower.
 		if (isTowerCostMoreThanCurrentGold()) {
 			g.setColor(Color.RED);
-			g.drawString("Can't Afford", 270, 725);
+			g.drawString(lanButton.getTooExpensive(), 270, 725);
 
 		}
 
@@ -151,7 +153,7 @@ public class ActionBar extends Bar {
 	}
 
 	private void drawGoldAmount(Graphics g) {
-		g.drawString("Gold: " + gold + "g", 110, 725);
+		g.drawString(lanButton.getGold() + gold + "g", 110, 725);
 
 	}
 
@@ -167,13 +169,13 @@ public class ActionBar extends Bar {
 	private void drawWavesLeftInfo(Graphics g) {
 		int current = playing.getWaveManager().getWaveIndex();
 		int size = playing.getWaveManager().getWaves().size();
-		g.drawString("Wave " + (current + 1) + " / " + size, 425, 770);
+		g.drawString(lanButton.getWave() + (current + 1) + " / " + size, 425, 770);
 
 	}
 
 	private void drawEnemiesLeftInfo(Graphics g) {
 		int remaining = playing.getEnemyManger().getAmountOfAliveEnemies();
-		g.drawString("Enemies Left: " + remaining, 425, 790);
+		g.drawString(lanButton.getEnemiesLeft() + remaining, 425, 790);
 	}
 
 	private void drawWaveTimerInfo(Graphics g) {
@@ -181,7 +183,7 @@ public class ActionBar extends Bar {
 
 			float timeLeft = playing.getWaveManager().getTimeLeft();
 			String formattedText = formatter.format(timeLeft);
-			g.drawString("Time Left: " + formattedText, 425, 750);
+			g.drawString(lanButton.getTime() + formattedText, 425, 750);
 		}
 	}
 
@@ -196,7 +198,7 @@ public class ActionBar extends Bar {
 			g.setFont(new Font("LucidaSans", Font.BOLD, 15));
 			g.drawString("" + Towers.GetName(displayedTower.getTowerType()), 480, 660);
 			g.drawString("ID: " + displayedTower.getId(), 480, 675);
-			g.drawString("Tier: " + displayedTower.getTier(), 560, 660);
+			g.drawString(lanButton.getTier() + displayedTower.getTier(), 560, 660);
 			drawDisplayedTowerBorder(g);
 			drawDisplayedTowerRange(g);
 
@@ -212,10 +214,10 @@ public class ActionBar extends Bar {
 
 			if (sellTower.isMouseOver()) {
 				g.setColor(Color.red);
-				g.drawString("Sell for: " + getSellAmount(displayedTower) + "g", 480, 695);
+				g.drawString(lanButton.getSellFor() + getSellAmount(displayedTower) + "g", 480, 695);
 			} else if (upgradeTower.isMouseOver() && gold >= getUpgradeAmount(displayedTower)) {
 				g.setColor(Color.blue);
-				g.drawString("Upgrade for: " + getUpgradeAmount(displayedTower) + "g", 480, 695);
+				g.drawString(lanButton.getUpgradeFor() + getUpgradeAmount(displayedTower) + "g", 480, 695);
 			}
 
 		}
@@ -273,9 +275,9 @@ public class ActionBar extends Bar {
 		playing.setGamePaused(!playing.isGamePaused());
 
 		if (playing.isGamePaused())
-			bPause.setText("Unpause");
+			bPause.setText(lanButton.getUnpause());
 		else
-			bPause.setText("Pause");
+			bPause.setText(lanButton.getPause());
 
 	}
 
