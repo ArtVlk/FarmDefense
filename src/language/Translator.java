@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 public class Translator {
     InputStream is = Translator.class.getClassLoader().getResourceAsStream("package.json");
-    private static String current_language = "ru";
+    private static String current_language = "en";
     private JSONObject languageObject;
 
     public Translator() {

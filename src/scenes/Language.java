@@ -32,7 +32,7 @@ public class Language extends GameScene implements SceneMethods {
     @Override
     public void render(Graphics g) {
         g.setColor(Color.WHITE);
-        g.fillRect(0, 0, 640, 640);
+        g.fillRect(0, 0, 640, 800);
 
         drawButtons(g);
     }

@@ -32,7 +32,7 @@
     "TooExpensivePlay": {"ru":  "Не хватает денег", "en":  "Can't Afford"},
     "GoldPlay": {"ru": "Золото: ", "en": "Gold: "},
     "WavePlay": {"ru":  "Волна: ", "en": "Wave: "},
-    "EnemiesLeftPlay": {"ru": "Врагов ушло: ", "en":  "Enemies Left: "},
+    "EnemiesLeftPlay": {"ru": "Врагов: ", "en":  "Enemies Left: "},
     "TimePlay": {"ru": "Осталось времени: ", "en":  "Time Left: "},
     "TierPlay": {"ru":  "Уровень: ", "en":  "Tier"}
 

@@ -162,7 +162,6 @@ public class Editing extends GameScene implements SceneMethods {
 	@Override
 	public void mouseDragged(int x, int y) {
 		if (y >= 640) {
-
 		} else {
 			changeTile(x, y);
 		}
