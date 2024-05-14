@@ -1,2 +1,4 @@
-# FarmDefense
-A little tower defense game about saving a sweet farm.
+# Защита фермы
+## Описание
+     - Суть игры - защита базы от злобных (и не очень) животных.
+     - Жанр - tower defense с созданием своей карты 
