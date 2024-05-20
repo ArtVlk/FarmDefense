@@ -38,7 +38,7 @@ public class GameOver extends GameScene implements SceneMethods {
 		g.setFont(new Font("LucidaSans", Font.BOLD, 50));
 
 		g.setColor(Color.red);
-		g.drawString(lanButton.getGameOver(), 160, 80);
+		g.drawString(lanButton.getGameOver(), 220, 80);
 
 		// buttons
 		g.setFont(new Font("LucidaSans", Font.BOLD, 20));

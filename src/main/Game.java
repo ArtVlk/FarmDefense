@@ -34,11 +34,11 @@ public class Game extends JFrame implements Runnable {
 		initClasses();
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-		setResizable(false);
 		setTitle("Farm Defense");
+		setResizable(false);
 		add(gameScreen);
 		pack();
+		setLocationRelativeTo(null);
 		setVisible(true);
 
 	}

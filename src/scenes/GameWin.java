@@ -37,7 +37,7 @@ public class GameWin extends GameScene implements SceneMethods {
         // game over text
         g.setFont(new Font("LucidaSans", Font.BOLD, 50));
         g.setColor(Color.green);
-        g.drawString(lanButton.getYouWin(), 160, 80);
+        g.drawString(lanButton.getYouWin(), 220, 80);
 
         // buttons
         g.setFont(new Font("LucidaSans", Font.BOLD, 20));

@@ -16,7 +16,7 @@ import objects.PathPoint;
 public class LoadSave {
 
 	public static String homePath = System.getProperty("user.home");
-	public static String saveFolder = "TDTutorial";
+	public static String saveFolder = "FDgame";
 	public static String levelFile = "level.txt";
 	public static String filePath = homePath + File.separator + saveFolder + File.separator + levelFile;
 	private static File lvlFile = new File(filePath);
@@ -40,8 +40,29 @@ public class LoadSave {
 		return img;
 	}
 
+	private static boolean IsNotNull(){
+		ArrayList<Integer> list = new ArrayList<>();
+
+		try {
+			Scanner sc = new Scanner(lvlFile);
+			while (sc.hasNextLine()) {
+				list.add(Integer.parseInt(sc.nextLine()));
+			}
+
+			sc.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		for (int i = 0; i < 400; i++){
+			if (list.get(i) != 0) {return true;}
+		}
+		return false;
+	}
+
 	public static void CreateLevel(int[] idArr) {
-		if (lvlFile.exists()) {
+		if (lvlFile.exists() && IsNotNull()) {
 			System.out.println("File: " + lvlFile + " already exists!");
 			return;
 		} else {
@@ -51,9 +72,10 @@ public class LoadSave {
 				e.printStackTrace();
 			}
 
-			// Adding start and end points to the new level.
 			WriteToFile(idArr, new PathPoint(0, 0), new PathPoint(0, 0));
 		}
+
+		WriteToFile(idArr, new PathPoint(0, 0), new PathPoint(0, 0));
 
 	}
 
@@ -88,7 +110,6 @@ public class LoadSave {
 
 		try {
 			Scanner sc = new Scanner(lvlFile);
-
 			while (sc.hasNextLine()) {
 				list.add(Integer.parseInt(sc.nextLine()));
 			}
@@ -98,7 +119,6 @@ public class LoadSave {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-
 		return list;
 	}
 

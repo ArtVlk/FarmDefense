@@ -60,7 +60,6 @@ public class TowerManager {
 						t.resetCooldown();
 					}
 				} else {
-					// we do nothing
 				}
 		}
 
