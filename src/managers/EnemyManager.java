@@ -24,7 +24,7 @@ public class EnemyManager {
 	private Playing playing;
 	private BufferedImage[] enemyImgs;
 	private ArrayList<Enemy> enemies = new ArrayList<>();
-	private PathPoint start, end;
+	private static PathPoint start, end;
 	private int HPbarWidth = 20;
 	private BufferedImage slowEffect;
 	private int[][] roadDirArr;
@@ -38,8 +38,15 @@ public class EnemyManager {
 		loadEffectImg();
 		loadEnemyImgs();
 		loadRoadDirArr();
-//		tempMethod();
 
+	}
+
+	public void setStart(PathPoint start) {
+		this.start = start;
+	}
+
+	public void setEnd(PathPoint end) {
+		this.end = end;
 	}
 
 	private void loadRoadDirArr() {
@@ -105,13 +112,13 @@ public class EnemyManager {
 	private PathPoint getEnemyTile(Enemy e) {
 
 		switch (e.getLastDir()) {
-		case LEFT:
-			return new PathPoint((int) ((e.getX() + 31) / 32), (int) (e.getY() / 32));
-		case UP:
-			return new PathPoint((int) (e.getX() / 32), (int) ((e.getY() + 31) / 32));
-		case RIGHT:
-		case DOWN:
-			return new PathPoint((int) (e.getX() / 32), (int) (e.getY() / 32));
+			case LEFT:
+				return new PathPoint((int) ((e.getX() + 31) / 32), (int) (e.getY() / 32));
+			case UP:
+				return new PathPoint((int) (e.getX() / 32), (int) ((e.getY() + 31) / 32));
+			case RIGHT:
+			case DOWN:
+				return new PathPoint((int) (e.getX() / 32), (int) (e.getY() / 32));
 
 		}
 
@@ -172,14 +179,14 @@ public class EnemyManager {
 
 	private void fixEnemyOffsetTile(Enemy e, int dir, int xCord, int yCord) {
 		switch (dir) {
-		case RIGHT:
-			if (xCord < 19)
-				xCord++;
-			break;
-		case DOWN:
-			if (yCord < 19)
-				yCord++;
-			break;
+			case RIGHT:
+				if (xCord < 19)
+					xCord++;
+				break;
+			case DOWN:
+				if (yCord < 19)
+					yCord++;
+				break;
 		}
 
 		e.setPos(xCord * 32, yCord * 32);
@@ -225,18 +232,18 @@ public class EnemyManager {
 		int y = start.getyCord() * 32;
 
 		switch (enemyType) {
-		case TARAS:
-			enemies.add(new Taras(x, y, 0, this));
-			break;
-		case RABBIT:
-			enemies.add(new Rabbit(x, y, 0, this));
-			break;
-		case NAPOLEON:
-			enemies.add(new Napoleon(x, y, 0, this));
-			break;
-		case CAT:
-			enemies.add(new Cat(x, y, 0, this));
-			break;
+			case TARAS:
+				enemies.add(new Taras(x, y, 0, this));
+				break;
+			case RABBIT:
+				enemies.add(new Rabbit(x, y, 0, this));
+				break;
+			case NAPOLEON:
+				enemies.add(new Napoleon(x, y, 0, this));
+				break;
+			case CAT:
+				enemies.add(new Cat(x, y, 0, this));
+				break;
 		}
 
 	}

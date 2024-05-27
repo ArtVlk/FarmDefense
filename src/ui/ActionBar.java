@@ -17,18 +17,15 @@ public class ActionBar extends Bar {
 	public Translator lanButton = new Translator();
 	private Playing playing;
 	private MyButton bMenu, bPause;
-
 	private MyButton[] towerButtons;
 	private Tower selectedTower;
 	private Tower displayedTower;
 	private MyButton sellTower, upgradeTower;
-
 	private DecimalFormat formatter;
 
 	private int gold = 500;
 	private boolean showTowerCost;
 	private int towerCostType;
-
 	private int lives = 25;
 
 	public ActionBar(int x, int y, int width, int height, Playing playing) {
@@ -37,6 +34,7 @@ public class ActionBar extends Bar {
 		formatter = new DecimalFormat("0.0");
 
 		initButtons();
+
 	}
 
 	public void resetEverything() {
@@ -46,6 +44,7 @@ public class ActionBar extends Bar {
 		gold = 100;
 		selectedTower = null;
 		displayedTower = null;
+
 	}
 
 	private void initButtons() {
@@ -64,7 +63,6 @@ public class ActionBar extends Bar {
 		for (int i = 0; i < towerButtons.length; i++)
 			towerButtons[i] = new MyButton("", xStart + xOffset * i, yStart, w, h, i);
 
-//		sellTower, upgradeTower; 
 		sellTower = new MyButton(lanButton.getSell(), 420, 702, 80, 25);
 		upgradeTower = new MyButton(lanButton.getUpgrade(), 545, 702, 80, 25);
 
@@ -74,6 +72,7 @@ public class ActionBar extends Bar {
 		lives--;
 		if (lives <= 0)
 			SetGameState(GAME_OVER);
+
 	}
 
 	private void drawButtons(Graphics g) {
@@ -86,24 +85,16 @@ public class ActionBar extends Bar {
 			g.drawImage(playing.getTowerManager().getTowerImgs()[b.getId()], b.x, b.y, b.width, b.height, null);
 			drawButtonFeedback(g, b);
 		}
+
 	}
 
 	public void draw(Graphics g) {
-
-		// Background
 		g.setColor(new Color(220, 123, 15));
 		g.fillRect(x, y, width, height);
 
-		// Buttons
 		drawButtons(g);
-
-		// DisplayedTower
 		drawDisplayedTower(g);
-
-		// Wave info
 		drawWaveInfo(g);
-
-		// Gold info
 		drawGoldAmount(g);
 
 		// Draw Tower Cost
@@ -147,7 +138,6 @@ public class ActionBar extends Bar {
 	private String getTowerCostName() {
 		return helpz.Constants.Towers.GetName(towerCostType);
 	}
-
 	private int getTowerCostCost() {
 		return helpz.Constants.Towers.GetTowerCost(towerCostType);
 	}
@@ -176,15 +166,16 @@ public class ActionBar extends Bar {
 	private void drawEnemiesLeftInfo(Graphics g) {
 		int remaining = playing.getEnemyManger().getAmountOfAliveEnemies();
 		g.drawString(lanButton.getEnemiesLeft() + remaining, 425, 790);
+
 	}
 
 	private void drawWaveTimerInfo(Graphics g) {
 		if (playing.getWaveManager().isWaveTimerStarted()) {
-
 			float timeLeft = playing.getWaveManager().getTimeLeft();
 			String formattedText = formatter.format(timeLeft);
 			g.drawString(lanButton.getTime() + formattedText, 425, 750);
 		}
+
 	}
 
 	private void drawDisplayedTower(Graphics g) {
@@ -199,14 +190,13 @@ public class ActionBar extends Bar {
 			g.drawString("" + Towers.GetName(displayedTower.getTowerType()), 480, 660);
 			g.drawString("ID: " + displayedTower.getId(), 480, 675);
 			g.drawString(lanButton.getTier() + displayedTower.getTier(), 560, 660);
+
 			drawDisplayedTowerBorder(g);
 			drawDisplayedTowerRange(g);
 
-			// Sell button
 			sellTower.draw(g);
 			drawButtonFeedback(g, sellTower);
 
-			// Upgrade Button
 			if (displayedTower.getTier() < 3 && gold >= getUpgradeAmount(displayedTower)) {
 				upgradeTower.draw(g);
 				drawButtonFeedback(g, upgradeTower);
@@ -226,6 +216,7 @@ public class ActionBar extends Bar {
 
 	private int getUpgradeAmount(Tower displayedTower) {
 		return (int) (helpz.Constants.Towers.GetTowerCost(displayedTower.getTowerType()) * 0.3f);
+
 	}
 
 	private int getSellAmount(Tower displayedTower) {
@@ -233,6 +224,7 @@ public class ActionBar extends Bar {
 		upgradeCost *= 0.5f;
 
 		return helpz.Constants.Towers.GetTowerCost(displayedTower.getTowerType()) / 2 + upgradeCost;
+
 	}
 
 	private void drawDisplayedTowerRange(Graphics g) {
@@ -243,7 +235,6 @@ public class ActionBar extends Bar {
 	}
 
 	private void drawDisplayedTowerBorder(Graphics g) {
-
 		g.setColor(Color.CYAN);
 		g.drawRect(displayedTower.getX(), displayedTower.getY(), 32, 32);
 
@@ -314,8 +305,8 @@ public class ActionBar extends Bar {
 	}
 
 	private boolean isGoldEnoughForTower(int towerType) {
-
 		return gold >= helpz.Constants.Towers.GetTowerCost(towerType);
+
 	}
 
 	public void mouseMoved(int x, int y) {
@@ -352,13 +343,16 @@ public class ActionBar extends Bar {
 					return;
 				}
 		}
+
 	}
 
 	public void mousePressed(int x, int y) {
 		if (bMenu.getBounds().contains(x, y))
 			bMenu.setMousePressed(true);
+
 		else if (bPause.getBounds().contains(x, y))
 			bPause.setMousePressed(true);
+
 		else {
 
 			if (displayedTower != null) {
@@ -383,8 +377,10 @@ public class ActionBar extends Bar {
 	public void mouseReleased(int x, int y) {
 		bMenu.resetBooleans();
 		bPause.resetBooleans();
+
 		for (MyButton b : towerButtons)
 			b.resetBooleans();
+
 		sellTower.resetBooleans();
 		upgradeTower.resetBooleans();
 
@@ -398,7 +394,6 @@ public class ActionBar extends Bar {
 	public void addGold(int getReward) {
 		this.gold += getReward;
 	}
-
 	public int getLives() {
 		return lives;
 	}

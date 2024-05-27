@@ -77,20 +77,20 @@ public class Game extends JFrame implements Runnable {
 
 	private void updateGame() {
 		switch (GameStates.gameState) {
-		case EDIT:
-			editing.update();
-			break;
-		case MENU:
-			break;
-		case PLAYING:
-			playing.update();
-			break;
-		case SETTINGS:
-			break;
-		case LANGUAGE:
-			break;
-		default:
-			break;
+			case EDIT:
+				editing.update();
+				break;
+			case MENU:
+				break;
+			case PLAYING:
+				playing.update();
+				break;
+			case SETTINGS:
+				break;
+			case LANGUAGE:
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -120,14 +120,12 @@ public class Game extends JFrame implements Runnable {
 		while (true) {
 			now = System.nanoTime();
 
-			// Render
 			if (now - lastFrame >= timePerFrame) {
 				repaint();
 				lastFrame = now;
 				frames++;
 			}
 
-			// Update
 			if (now - lastUpdate >= timePerUpdate) {
 				updateGame();
 				lastUpdate = now;
@@ -145,35 +143,14 @@ public class Game extends JFrame implements Runnable {
 
 	}
 
-	// Getters and setters
-	public Render getRender() {
-		return render;
-	}
-
-	public Menu getMenu() {
-		return menu;
-	}
-
-	public Playing getPlaying() {
-		return playing;
-	}
-
-	public Settings getSettings() {
-		return settings;
-	}
-
+	public Render getRender() {return render;}
+	public Menu getMenu() {return menu;}
+	public Playing getPlaying() {return playing;}
+	public Settings getSettings() {return settings;}
 	public Language getLanguage() {return language;}
-
-	public Editing getEditor() {
-		return editing;
-	}
-
-	public GameOver getGameOver() {
-		return gameOver;
-	}
-
+	public Editing getEditor() {return editing;}
+	public GameOver getGameOver() {return gameOver;}
 	public GameWin getGameWin() {return gameWin;}
-
 	public TileManager getTileManager() {
 		return tileManager;
 	}

@@ -22,7 +22,6 @@ public class ProjectileManager {
 	private BufferedImage[] proj_imgs, explo_imgs;
 	private int proj_id = 0;
 
-	// Temp variables
 	private boolean callTrue;
 	private long lastCall;
 
@@ -177,12 +176,12 @@ public class ProjectileManager {
 
 	private int getProjType(Tower t) {
 		switch (t.getTowerType()) {
-		case DOG:
-			return ARROW;
-		case LAMA:
-			return BOMB;
-		case COW:
-			return CHAINS;
+			case DOG:
+				return ARROW;
+			case LAMA:
+				return BOMB;
+			case COW:
+				return CHAINS;
 		}
 		return 0;
 	}

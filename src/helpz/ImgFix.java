@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 
 public class ImgFix {
 
-	// Rotate
 	public static BufferedImage getRotImg(BufferedImage img, int rotAngle) {
 
 		int w = img.getWidth();
@@ -22,7 +21,6 @@ public class ImgFix {
 
 	}
 
-	// Img build
 	public static BufferedImage buildImg(BufferedImage[] imgs) {
 		int w = imgs[0].getWidth();
 		int h = imgs[0].getHeight();
@@ -39,7 +37,6 @@ public class ImgFix {
 
 	}
 
-	// Rotate Second img only
 	public static BufferedImage getBuildRotImg(BufferedImage[] imgs, int rotAngle, int rotAtIndex) {
 		int w = imgs[0].getWidth();
 		int h = imgs[0].getHeight();
@@ -60,7 +57,6 @@ public class ImgFix {
 
 	}
 
-	// Rotate Second img only + animation
 	public static BufferedImage[] getBuildRotImg(BufferedImage[] imgs, BufferedImage secondImage, int rotAngle) {
 		int w = imgs[0].getWidth();
 		int h = imgs[0].getHeight();

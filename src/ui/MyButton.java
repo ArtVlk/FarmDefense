@@ -11,7 +11,6 @@ public class MyButton {
 	private Rectangle bounds;
 	private boolean mouseOver, mousePressed;
 
-	// For normal Buttons
 	public MyButton(String text, int x, int y, int width, int height) {
 		this.text = text;
 		this.x = x;
@@ -21,9 +20,9 @@ public class MyButton {
 		this.id = -1;
 
 		initBounds();
+
 	}
 
-	// For tile buttons
 	public MyButton(String text, int x, int y, int width, int height, int id) {
 		this.text = text;
 		this.x = x;
@@ -33,6 +32,7 @@ public class MyButton {
 		this.id = id;
 
 		initBounds();
+
 	}
 
 	private void initBounds() {
@@ -40,18 +40,13 @@ public class MyButton {
 	}
 
 	public void draw(Graphics g) {
-		// Body
 		drawBody(g);
-
-		// Border
 		drawBorder(g);
-
-		// Text
 		drawText(g);
+
 	}
 
 	private void drawBorder(Graphics g) {
-
 		g.setColor(Color.black);
 		g.drawRect(x, y, width, height);
 		if (mousePressed) {
@@ -80,32 +75,27 @@ public class MyButton {
 	public void resetBooleans() {
 		this.mouseOver = false;
 		this.mousePressed = false;
+
 	}
 
 	public void setText(String text) {
 		this.text = text;
 	}
-
 	public void setMousePressed(boolean mousePressed) {
 		this.mousePressed = mousePressed;
 	}
-
 	public void setMouseOver(boolean mouseOver) {
 		this.mouseOver = mouseOver;
 	}
-
 	public boolean isMouseOver() {
 		return mouseOver;
 	}
-
 	public boolean isMousePressed() {
 		return mousePressed;
 	}
-
 	public Rectangle getBounds() {
 		return bounds;
 	}
-
 	public int getId() {
 		return id;
 	}

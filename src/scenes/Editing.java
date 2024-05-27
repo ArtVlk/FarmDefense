@@ -1,5 +1,4 @@
 package scenes;
-
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -9,6 +8,7 @@ import main.Game;
 import objects.PathPoint;
 import objects.Tile;
 import ui.Toolbar;
+import scenes.*;
 
 import static helpz.Constants.Tiles.ROAD_TILE;
 
@@ -88,6 +88,7 @@ public class Editing extends GameScene implements SceneMethods {
 
 		LoadSave.SaveLevel(lvl, start, end);
 		game.getPlaying().setLevel(lvl);
+		game.getInitClasses();
 
 	}
 

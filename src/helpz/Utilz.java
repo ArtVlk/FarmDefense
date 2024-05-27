@@ -25,14 +25,12 @@ public class Utilz {
 	}
 
 	private static int GetDirFromPrevToCurr(PathPoint prevTile, PathPoint currTile) {
-		// Up or down
 		if (prevTile.getxCord() == currTile.getxCord()) {
 			if (prevTile.getyCord() > currTile.getyCord())
 				return UP;
 			else
 				return DOWN;
 		} else {
-			// Right or left
 			if (prevTile.getxCord() > currTile.getxCord())
 				return LEFT;
 			else
@@ -70,18 +68,18 @@ public class Utilz {
 	private static PathPoint GetTileInDir(PathPoint prevTile, int testDir, int lastDir) {
 
 		switch (testDir) {
-		case LEFT:
-			if (lastDir != RIGHT)
-				return new PathPoint(prevTile.getxCord() - 1, prevTile.getyCord());
-		case UP:
-			if (lastDir != DOWN)
-				return new PathPoint(prevTile.getxCord(), prevTile.getyCord() - 1);
-		case RIGHT:
-			if (lastDir != LEFT)
-				return new PathPoint(prevTile.getxCord() + 1, prevTile.getyCord());
-		case DOWN:
-			if (lastDir != UP)
-				return new PathPoint(prevTile.getxCord(), prevTile.getyCord() + 1);
+			case LEFT:
+				if (lastDir != RIGHT)
+					return new PathPoint(prevTile.getxCord() - 1, prevTile.getyCord());
+			case UP:
+				if (lastDir != DOWN)
+					return new PathPoint(prevTile.getxCord(), prevTile.getyCord() - 1);
+			case RIGHT:
+				if (lastDir != LEFT)
+					return new PathPoint(prevTile.getxCord() + 1, prevTile.getyCord());
+			case DOWN:
+				if (lastDir != UP)
+					return new PathPoint(prevTile.getxCord(), prevTile.getyCord() + 1);
 		}
 
 		return null;

@@ -74,13 +74,8 @@ public class Toolbar extends Bar {
 		map.put(b, list);
 	}
 
-	private void saveLevel() {
-		editing.saveLevel();
-	}
-
-	public void clearLevel(){
-		editing.changeLevelToSingleTexture(0); // Change the level to single texture with id=1
-	}
+	private void saveLevel() {editing.saveLevel();}
+	public void clearLevel(){editing.changeLevelToSingleTexture(0);}
 
 	public void rotateSprite() {
 
@@ -94,11 +89,9 @@ public class Toolbar extends Bar {
 
 	public void draw(Graphics g) {
 
-		// Background
 		g.setColor(new Color(220, 123, 15));
 		g.fillRect(x, y, width, height);
 
-		// Buttons
 		drawButtons(g);
 	}
 
@@ -110,8 +103,6 @@ public class Toolbar extends Bar {
 		drawPathButton(g, bPathStart, pathStart);
 		drawPathButton(g, bPathEnd, pathEnd);
 
-//		bPathStart.draw(g);
-//		bPathEnd.draw(g);
 
 		drawNormalButton(g, bGrass);
 		drawNormalButton(g, bWater);
@@ -144,7 +135,7 @@ public class Toolbar extends Bar {
 
 	}
 
-	
+
 
 	private void drawSelectedTile(Graphics g) {
 
@@ -269,10 +260,7 @@ public class Toolbar extends Bar {
 
 	}
 
-	public BufferedImage getStartPathImg() {
-		return pathStart;
-	}
-
+	public BufferedImage getStartPathImg() {return pathStart;}
 	public BufferedImage getEndPathImg() {
 		return pathEnd;
 	}

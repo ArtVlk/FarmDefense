@@ -31,4 +31,5 @@ public class Bar {
 			g.drawRect(b.x + 2, b.y + 2, b.width - 4, b.height - 4);
 		}
 	}
+
 }

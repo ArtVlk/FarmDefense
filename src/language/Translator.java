@@ -33,7 +33,6 @@ public class Translator {
     public String getReplay() {return getCurrentLanguageTranslation("ReplayPlay");}
     public String getGameOver() {return getCurrentLanguageTranslation("GameOverPlay");}
     public String getPlay() {return getCurrentLanguageTranslation("PlayPlay");}
-
     public String getEdit() {return getCurrentLanguageTranslation("EditPlay");}
     public String getSettings() {return getCurrentLanguageTranslation("SettingsPlay");}
     public String getQuit() {return getCurrentLanguageTranslation("QuitPlay");}
