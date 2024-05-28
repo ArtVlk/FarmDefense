@@ -17,10 +17,10 @@
 ## Примеры
 ### Геймплей
 <p>
-    <img src="gifs/video.gif" style="width: 30%;">
+    <img src="gifs/gameplay.gif" style="width: 50%;">
 </p>
 
 ### Редактирование
 <p>
-    <img src="gifs/editing.gif" style="width: 30%;">
+    <img src="gifs/editing.gif" style="width: 50%;">
 </p>
